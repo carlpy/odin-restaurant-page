@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+$font: "Rubik", sans-serif;
+
+$white: #fff;
+$black: #333;
+
+$body-main: #f5ebdc;
+$body-sec: #fff;
+
+$max-standard-w: 900px;
+$standard-w: 80%;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $font;
+}
+
+body {
+  background-color: $body-main;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.hero-header {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero-header.jpg") center/cover no-repeat;
+  height: 70vh;
+  width: 100vw;
+  position: relative;
+
+  header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    color: $body-sec;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+nav {
+  max-width: $max-standard-w;
+  width: 80%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  li {
+    align-content: center;
+    padding: 0.7rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:nth-child(2) {margin: 0 2rem;}
+
+    &.active, &:hover {
+      background-color: $body-sec;
+      color: #405c4f;
+    }
+  }
+}
+
+nav {
+  li {
+    list-style: none;
+  }
+}
+
+main {
+  width: $standard-w;
+  max-width: $max-standard-w;
+  margin: 2rem auto;
+  line-height: 2;
+  
+  section {
+    display: none;
+    
+    &.active-sect { display: block; }
+  }
+
+  .menu {
+    .menu__meal {
+      width: 100%;
+      background-color: #ddd;
+      text-align: center;
+      
+      .menu__meal__container {
+        border-radius: 5px;
+        margin: 0 0 .7rem 0;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: scale-down;
+          transition: transform .5s;
+  
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
+    .menu__meal:hover .img {
+      transform: scale(1.2);
+    }
+
+    &.active-sect {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    }
+  }
+
+  .locations {
+    h2 { 
+      margin: 0 0 1rem 0;
+    }
+
+    .locations__img {
+      margin: 2rem 0 0 0;
+      width: 100%;
+      height: auto;
+      
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .locations__info {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    & > * {
+      flex-basis: 50%;
+    }
+
+    img {
+      width: 50%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
